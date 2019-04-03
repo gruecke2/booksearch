@@ -2,3 +2,12 @@
   min-height: 300px;
   padding-top: 100px;
 }
+
+.jumbotron{
+  background-image: url("./bookBg.png");
+  background-size: cover;
+}
+
+#jumboHead{
+  color: black;
+}

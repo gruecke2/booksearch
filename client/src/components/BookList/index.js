@@ -34,7 +34,7 @@ export function BookList({children}) {
 
     render(){
     return (
-      <li className="list-group-item">
+      <li className="list-group-item expandUp">
         <Container>
           <Row>
             <Col size="xs-4 sm-2">

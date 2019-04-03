@@ -1,9 +1,12 @@
 import React from "react";
 import "./style.css";
+import Jumbotron from "../Jumbotron";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-dark bg-dark">
+    <div>
+  
+    <nav className="navbar navbar-dark">
       <a className="navbar-brand" href="/">
         Google Books React App
       </a>
@@ -12,8 +15,9 @@ function Nav() {
           <a className="nav-link" href="/books">Saved Books</a>
         </li>
       </ul>
-      
     </nav>
+    <Jumbotron/>
+    </div>
   );
 }
 

@@ -42,9 +42,10 @@ class Search extends Component {
   render() {
     return (
       <Row>
+        <Col size="md-12">
         <div className="search">
-          <input type="text" name="query" onChange={this.handleInput} />
-          <button type="submit" onClick={this.searchGBooks}>
+          <input className="form-control form-control-lg" autoComplete="off" type="text" name="query" onChange={this.handleInput} />
+          <button className="btn btn-dark" type="submit" onClick={this.searchGBooks}>
             Submit
           </button>
 
@@ -72,6 +73,7 @@ class Search extends Component {
           }
           
         </div>
+        </Col>
       </Row>
     );
   }
