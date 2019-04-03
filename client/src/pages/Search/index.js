@@ -3,6 +3,7 @@ import "./style.css";
 import axios from "axios";
 import { Row, Col } from "../../components/Grid";
 import { BookList, BookListItem } from "../../components/BookList";
+import EmptyList from "../../components/EmptyList";
 
 class Search extends Component {
   state = {
@@ -37,6 +38,7 @@ class Search extends Component {
     console.log("Query", this.state.query);
   };
 
+
   render() {
     return (
       <Row>
@@ -45,13 +47,29 @@ class Search extends Component {
           <button type="submit" onClick={this.searchGBooks}>
             Submit
           </button>
+
+          {this.state.books.length > 0 ? 
           <BookList>
           {this.state.books.map(book => {
+            //console.log("Book",book)
             return (
-              <BookListItem {...book}></BookListItem>
+              <BookListItem
+              key={book.id} 
+              authors={book.volumeInfo.authors}
+              title={book.volumeInfo.title}
+              synopsis={book.searchInfo ? 
+                book.searchInfo.textSnippet : "No Description Available"}
+              link={book.selfLink}
+              thumbnail={book.volumeInfo.imageLinks ? 
+                book.volumeInfo.imageLinks.thumbnail : "https://loremflickr.com/320/240/book"}
+              />
             )
           })}
           </BookList>
+          : 
+          <EmptyList/>
+          
+          }
           
         </div>
       </Row>
