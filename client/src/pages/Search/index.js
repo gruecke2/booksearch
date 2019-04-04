@@ -52,7 +52,7 @@ class Search extends Component {
           </button>
                    
 
-          {this.state.books.length > 0 ? 
+          {(this.state.books && this.state.books.length > 0) ? 
           <BookList>
           {this.state.books.map(book => {
             //console.log("Book",book)
@@ -61,8 +61,8 @@ class Search extends Component {
               key={book.id} 
               authors={book.volumeInfo.authors ? book.volumeInfo.authors : ["No Author Available"]}
               title={book.volumeInfo.title}
-              synopsis={book.searchInfo ? 
-                book.searchInfo.textSnippet : "No Description Available"}
+              synopsis={book.volumeInfo.description ? 
+                book.volumeInfo.description : "No Description Available"}
               link={book.selfLink}
               thumbnail={book.volumeInfo.imageLinks ? 
                 book.volumeInfo.imageLinks.thumbnail : "https://loremflickr.com/320/240/book"}

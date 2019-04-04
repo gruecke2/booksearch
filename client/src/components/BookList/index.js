@@ -3,36 +3,45 @@ import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 import AddBookBtn from "../AddBookBtn";
 import RemoveBookBtn from "../RemoveBookBtn";
+import BookToast from "../BookToast";
 
 // RecipeList renders a bootstrap list item
 export function BookList({children}) {
 
-  var update = () =>{
-    console.log(children)
-    window.location.reload();
-  }
-  var cWProp = React.Children.map(children, (child => React.cloneElement(child, {update: update})))
+  // var update = () =>{
+  //   console.log(children)
+  //   window.location.reload();
+  // }
+  // var cWProp = React.Children.map(children, (child => React.cloneElement(child, {update: update})))
   return (
-    <ul className="list-group">{cWProp}</ul>
+    <ul className="list-group">{children}</ul>
     );
   }
 
   // RecipeListItem renders a bootstrap list item containing data from the recipe api call
   export class BookListItem extends React.Component{
     state = {
-      deleted: false
+      showToast: false
     }
 
-    deleteCB = () => {
-      this.props.update()
+    makeToast = () => {
+      return(
+        <BookToast
+        title={this.props.title}
+        buttonLabel={"x"}
+      />
+      )
     }
 
-
+    toggleToast = () => {
+      this.setState({showToast: true})
+    }
 
     render(){
     return (
       <li className="list-group-item expandUp">
         <Container>
+        {this.state.showToast && this.makeToast()}
           <Row>
             <Col size="xs-4 sm-2">
               <Thumbnail src={this.props.thumbnail} />
@@ -57,7 +66,7 @@ export function BookList({children}) {
               synopsis={this.props.synopsis}
               link={this.props.link}
               thumbnail={this.props.thumbnail}
-              deleteCB={this.deleteCB}
+              delete={this.props.delete}
               />
               :
               <AddBookBtn
@@ -66,6 +75,7 @@ export function BookList({children}) {
               synopsis={this.props.synopsis}
               link={this.props.link}
               thumbnail={this.props.thumbnail}
+              toast={()=>this.toggleToast()}
               />
               }
               

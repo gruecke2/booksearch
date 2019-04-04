@@ -24,6 +24,16 @@ class Saved extends Component {
     // this.setState({initialized: true})
   }
 
+  deleteFromDB = id => {
+    console.log(id);
+
+    axios.delete(`/books/${id}`)
+    .then(
+        this.getBooks()
+    )
+    .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <Row>
@@ -33,7 +43,16 @@ class Saved extends Component {
           {this.state.savedBooks.map(book => {
             console.log(book)
             return (
-              <BookListItem {...book}/>
+              <BookListItem
+              key={book.id}
+              _id={book._id}
+              authors={book.authors}
+              title={book.title}
+              synopsis={book.synopsis}
+              link={book.link}
+              thumbnail={book.thumbnail}
+              delete={()=> this.deleteFromDB(book._id)}
+              />
             )
           })}
           </BookList>

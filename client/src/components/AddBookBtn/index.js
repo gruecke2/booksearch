@@ -2,10 +2,29 @@ import React from "react";
 import Button from "../Button";
 import "./style.css";
 import axios from "axios";
+import {Toast, ToastBody, ToastHeader} from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class AddBookBtn extends React.Component{
     state = {
-        bookID: null
+        showToast: false
+    }
+
+    makeToast = (title) => {
+      // this.setState({showToast : true});
+      console.log("toasted...?")
+      return(
+      <div className="p-3 my-2 rounded">
+        <Toast>
+          <ToastHeader>
+            Reactstrap
+          </ToastHeader>
+          <ToastBody>
+            You added {title} to your bookshelf!
+          </ToastBody>
+        </Toast>
+      </div>
+      )
     }
 
     postToDB = (book) => {
@@ -23,9 +42,16 @@ class AddBookBtn extends React.Component{
       }
 
     render() {
-        return (<Button className="saveBtn" onClick={() => this.postToDB(this.props)}>
+        return (
+          <div>
+          <Button type="primary" className="saveBtn" onClick={() => 
+            {this.postToDB(this.props)
+              this.props.toast()
+            }}>
             Save Book
-        </Button>);
+        </Button>
+        </div>
+        );
     }
   }
 
