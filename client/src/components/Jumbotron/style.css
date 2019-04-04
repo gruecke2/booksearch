@@ -9,5 +9,7 @@
 }
 
 #jumboHead{
-  color: black;
+  color: ghostwhite;
+  font-family: sans-serif;
+  -webkit-text-stroke: 1px black;
 }

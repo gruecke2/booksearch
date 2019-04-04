@@ -44,10 +44,13 @@ class Search extends Component {
       <Row>
         <Col size="md-12">
         <div className="search">
-          <input className="form-control form-control-lg" autoComplete="off" type="text" name="query" onChange={this.handleInput} />
-          <button className="btn btn-dark" type="submit" onClick={this.searchGBooks}>
-            Submit
+
+          
+          <input id="bookQ" className="form-control form-control-lg" autoComplete="off" type="text" name="query" onChange={this.handleInput} />
+          <button id="searchBtn" className="btn btn-dark" type="submit" onClick={this.searchGBooks} >
+            Search for Books
           </button>
+                   
 
           {this.state.books.length > 0 ? 
           <BookList>
@@ -56,7 +59,7 @@ class Search extends Component {
             return (
               <BookListItem
               key={book.id} 
-              authors={book.volumeInfo.authors}
+              authors={book.volumeInfo.authors ? book.volumeInfo.authors : ["No Author Available"]}
               title={book.volumeInfo.title}
               synopsis={book.searchInfo ? 
                 book.searchInfo.textSnippet : "No Description Available"}
@@ -68,8 +71,7 @@ class Search extends Component {
           })}
           </BookList>
           : 
-          <EmptyList/>
-          
+          <EmptyList/>         
           }
           
         </div>

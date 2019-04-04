@@ -2,3 +2,13 @@ nav.navbar {
   margin-bottom: 15px;
   background: #212529;
 }
+
+#homeLink{
+  font-weight: 950;
+  color: #18BC9C;
+}
+
+#savedLink{
+  font-weight: 950;
+  color: #18BC9C;
+}

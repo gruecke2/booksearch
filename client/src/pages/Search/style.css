@@ -1,0 +1,19 @@
+#bookQ{
+    margin-bottom: 15px;
+}
+
+.search{
+    margin-bottom: 15px;
+}
+
+#empty{
+    text-align: center;
+    background: antiquewhite;
+    margin: 15px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#searchBtn{
+    margin-bottom: 15px;
+}

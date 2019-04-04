@@ -3,12 +3,9 @@ import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 import AddBookBtn from "../AddBookBtn";
 import RemoveBookBtn from "../RemoveBookBtn";
-import axios from "axios";
-
 
 // RecipeList renders a bootstrap list item
 export function BookList({children}) {
-
 
   var update = () =>{
     console.log(children)
@@ -48,6 +45,7 @@ export function BookList({children}) {
               <a
                 target="_blank"
                 href={this.props.link}
+                rel="noopener noreferrer"
               >
                 Go to book!
               </a>
