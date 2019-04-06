@@ -13,7 +13,4 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
-router
-  .route("*")
-
 module.exports = router;
