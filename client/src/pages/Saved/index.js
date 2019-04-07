@@ -20,7 +20,7 @@ class Saved extends Component {
     .then(res => {
       this.setState({savedBooks: res.data})
   })
-    .catch(console.log(err => console.log(err)))
+    .catch((err => console.log(err)))
     // this.setState({initialized: true})
   }
 
@@ -36,6 +36,7 @@ class Saved extends Component {
 
   render() {
     return (
+      <div id="wrap">
       <Row>
         <Col size="md-12">
           {this.state.savedBooks.length > 0 ? 
@@ -61,6 +62,7 @@ class Saved extends Component {
           }
           </Col>
       </Row>
+      </div>
     );
   }
 }

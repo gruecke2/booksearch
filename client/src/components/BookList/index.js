@@ -5,7 +5,7 @@ import AddBookBtn from "../AddBookBtn";
 import RemoveBookBtn from "../RemoveBookBtn";
 import BookToast from "../BookToast";
 
-// RecipeList renders a bootstrap list item
+// BookList renders a bootstrap list item
 export function BookList({children}) {
 
   // var update = () =>{
